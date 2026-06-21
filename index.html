@@ -19,7 +19,6 @@
             padding: 8px;
             font-size: 14px;
             font-weight: bold;
-            letter-spacing: 0.5px;
         }
         header {
             background-color: #12131a;
@@ -41,8 +40,36 @@
         .store-hero h1 {
             font-size: 2.2rem;
             color: #f3e8ff;
-            margin: 0;
+            margin: 0 0 15px 0;
         }
+        
+        /* PREMIUM INFO BAR STYLES PLACEHOLDER AT THE TOP */
+        .direct-payment-info {
+            background-color: #1a1b26;
+            border: 2px solid #9333ea;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(147, 51, 234, 0.25);
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        .highlight-num {
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            background-color: #2e1065;
+            padding: 2px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 4px;
+        }
+        .status-red {
+            color: #ef4444;
+            font-weight: bold;
+        }
+
         .section-title {
             max-width: 1200px;
             margin: 40px auto 10px;
@@ -98,7 +125,7 @@
             background-color: #db2777;
             border: none;
             color: white;
-            padding: 8px 18px;
+            padding: 6px 16px;
             font-size: 13px;
             font-weight: bold;
             border-radius: 4px;
@@ -108,104 +135,6 @@
             color: #ef4444;
             font-size: 13px;
             font-weight: bold;
-        }
-        .cart-bar {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #12131a;
-            border: 2px solid #9333ea;
-            box-shadow: 0 0 25px rgba(147, 51, 234, 0.4);
-            padding: 15px 30px;
-            border-radius: 50px;
-            display: flex;
-            gap: 25px;
-            align-items: center;
-            z-index: 999;
-            font-weight: bold;
-        }
-        .checkout-trigger-btn {
-            background-color: #22c55e;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        #checkout-page {
-            display: none;
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 30px;
-            background-color: #12131a;
-            border: 2px solid #9333ea;
-            border-radius: 12px;
-            box-shadow: 0 0 30px rgba(147, 51, 234, 0.2);
-        }
-        .invoice-box {
-            background-color: #0c0d14;
-            border: 1px solid #2e314d;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        .invoice-line {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #1e2030;
-            font-size: 14px;
-        }
-        .invoice-total-row {
-            display: flex;
-            justify-content: space-between;
-            font-weight: bold;
-            font-size: 18px;
-            color: #4ade80;
-            margin-top: 15px;
-        }
-        .payment-instructions-card {
-            background-color: #2e1065;
-            border-left: 4px solid #c084fc;
-            padding: 15px;
-            border-radius: 6px;
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .username-entry-input {
-            width: 100%;
-            padding: 12px;
-            background-color: #0c0d14;
-            border: 1px solid #2e314d;
-            border-radius: 6px;
-            color: white;
-            box-sizing: border-box;
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
-        .complete-order-btn {
-            background-color: #22c55e;
-            color: white;
-            border: none;
-            width: 100%;
-            padding: 14px;
-            font-size: 15px;
-            font-weight: bold;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        .back-store-btn {
-            background: none;
-            border: none;
-            color: #64748b;
-            text-decoration: underline;
-            cursor: pointer;
-            font-size: 13px;
-            margin-top: 15px;
-            display: inline-block;
         }
     </style>
 </head>
@@ -217,72 +146,147 @@
         <div class="logo">🌿 GrindOnGarden</div>
     </header>
 
-    <!-- ==================== FIRST PAGE VIEWPORT CONTAINER ==================== -->
-    <div id="storefront-view">
-        <section class="store-hero">
-            <h1>GrindOnGardenMarket</h1>
-        </section>
+    <section class="store-hero">
+        <h1>GrindOnGardenMarket</h1>
+        
+        <!-- HARDCODED PAYMENT DIRECT DATA FIELD -->
+        <div class="direct-payment-info">
+            📱 To order active items, send payment straight via <strong style="color: #4ade80;">Apple Pay</strong> to:<br>
+            <span class="highlight-num">202-617-4139 Apple Pay</span><br>
+            <span style="font-size: 12px; color: #94a3b8; display:block; margin: 4px 0;">⚠️ Include your Roblox Username in the text description note!</span>
+            <span class="status-red">🚫 Cash App Disabled</span>
+        </div>
+    </section>
 
-        <!-- SEEDS SECTION -->
-        <div class="section-title">Seeds & Gear</div>
-        <main class="store-grid">
-            <div class="store-card">
-                <span class="card-rarity">SUPER</span>
-                <h3 class="card-title">Dragon's Breath Seed</h3>
-                <p class="card-desc">Extremely rare; actively attacks nearby players.</p>
-                <div class="price-row"><span class="price">$1.50</span><span class="sold-out">Out of Stock</span></div>
+    <!-- ==================== SEEDS SECTION ==================== -->
+    <div class="section-title">Seeds & Gear</div>
+    <main class="store-grid">
+        
+        <div class="store-card">
+            <span class="card-rarity">SUPER</span>
+            <h3 class="card-title">Dragon's Breath Seed</h3>
+            <p class="card-desc">Extremely rare; actively attacks nearby players.</p>
+            <div class="price-row">
+                <span class="price">$1.50</span>
+                <span class="sold-out">Out of Stock</span>
             </div>
-            <div class="store-card">
-                <span class="card-rarity">SUPER</span>
-                <h3 class="card-title">Moon Blossom</h3>
-                <p class="card-desc">Emits a low-gravity effect; considered the absolute best money-maker.</p>
-                <div class="price-row"><span class="price">$1.00</span><span class="sold-out">Out of Stock</span></div>
-            </div>
-            <div class="store-card">
-                <span class="card-rarity">MYTHIC</span>
-                <h3 class="card-title">Poison Apple</h3>
-                <p class="card-desc">Single-harvest crop with an astronomical base sell price.</p>
-                <div class="price-row"><span class="price">$0.90</span><span class="sold-out">Out of Stock</span></div>
-            </div>
-            <div class="store-card">
-                <span class="card-rarity">MYTHIC</span>
-                <h3 class="card-title">Pomegranate</h3>
-                <p class="card-desc">High-tier multi-harvest crop for consistent long-term cash.</p>
-                <div class="price-row"><span class="price">$2.00</span><span class="sold-out">Out of Stock</span></div>
-            </div>
-            <div class="store-card">
-                <span class="card-rarity">MYTHIC</span>
-                <h3 class="card-title">Venus Fly Trap</h3>
-                <p class="card-desc">High-value single-harvest crop.</p>
-                <div class="price-row"><span class="price">$0.90</span><span class="sold-out">Out of Stock</span></div>
-            </div>
-            <div class="store-card">
-                <span class="card-rarity">MYTHIC</span>
-                <h3 class="card-title">Venom Spitter</h3>
-                <p class="card-desc">Newly added in the latest game update.</p>
-                <div class="price-row"><span class="price">$2.00</span><span class="sold-out">Out of Stock</span></div>
-            </div>
-            <div class="store-card">
-                <span class="card-rarity">MYTHIC</span>
-                <h3 class="card-title">Ghost Pepper</h3>
-                <p class="card-desc">Legendary spicy crop entry.</p>
-                <div class="price-row"><span class="price">$1.50</span><span class="sold-out">Out of Stock</span></div>
-            </div>
-            <div class="store-card">
-                <span class="card-rarity">GEAR</span>
-                <h3 class="card-title">Super Sprinkler</h3>
-                <p class="card-desc">Automated advanced watering station asset.</p>
-                <div class="price-row"><span class="price">$1.30</span><span class="sold-out">Out of Stock</span></div>
-            </div>
-            <div class="store-card">
-                <span class="card-rarity">GEAR</span>
-                <h3 class="card-title">Super Watering Can</h3>
-                <p class="card-desc">High-capacity crop tool for fast watering.</p>
-                <div class="price-row"><span class="price">$0.99</span><span class="sold-out">Out of Stock</span></div>
-            </div>
-        </main>
+        </div>
 
-        <!-- COMPANION PETS LISTING -->
-        <div class="section-title">Companion Pets</div>
-        <main class="store-grid">
-            <div class="store-card">
+        <div class="store-card">
+            <span class="card-rarity">SUPER</span>
+            <h3 class="card-title">Moon Blossom</h3>
+            <p class="card-desc">Emits a low-gravity effect; considered the absolute best money-maker.</p>
+            <div class="price-row">
+                <span class="price">$1.00</span>
+                <span class="sold-out">Out of Stock</span>
+            </div>
+        </div>
+
+        <div class="store-card">
+            <span class="card-rarity">MYTHIC</span>
+            <h3 class="card-title">Poison Apple</h3>
+            <p class="card-desc">Single-harvest crop with an astronomical base sell price.</p>
+            <div class="price-row">
+                <span class="price">$0.90</span>
+                <span class="sold-out">Out of Stock</span>
+            </div>
+        </div>
+
+        <div class="store-card">
+            <span class="card-rarity">MYTHIC</span>
+            <h3 class="card-title">Pomegranate</h3>
+            <p class="card-desc">High-tier multi-harvest crop for consistent long-term cash.</p>
+            <div class="price-row">
+                <span class="price">$2.00</span>
+                <span class="sold-out">Out of Stock</span>
+            </div>
+        </div>
+
+        <div class="store-card">
+            <span class="card-rarity">MYTHIC</span>
+            <h3 class="card-title">Venus Fly Trap</h3>
+            <p class="card-desc">High-value single-harvest crop.</p>
+            <div class="price-row">
+                <span class="price">$0.90</span>
+                <span class="sold-out">Out of Stock</span>
+            </div>
+        </div>
+
+        <div class="store-card">
+            <span class="card-rarity">MYTHIC</span>
+            <h3 class="card-title">Venom Spitter</h3>
+            <p class="card-desc">Newly added in the latest game update.</p>
+            <div class="price-row">
+                <span class="price">$2.00</span>
+                <span class="sold-out">Out of Stock</span>
+            </div>
+        </div>
+
+        <div class="store-card">
+            <span class="card-rarity">MYTHIC</span>
+            <h3 class="card-title">Ghost Pepper</h3>
+            <p class="card-desc">Legendary spicy crop entry.</p>
+            <div class="price-row">
+                <span class="price">$1.50</span>
+                <span class="sold-out">Out of Stock</span>
+            </div>
+        </div>
+
+        <div class="store-card">
+            <span class="card-rarity">GEAR</span>
+            <h3 class="card-title">Super Sprinkler</h3>
+            <p class="card-desc">Automated advanced watering station asset.</p>
+            <div class="price-row">
+                <span class="price">$1.30</span>
+                <span class="sold-out">Out of Stock</span>
+            </div>
+        </div>
+
+        <div class="store-card">
+            <span class="card-rarity">GEAR</span>
+            <h3 class="card-title">Super Watering Can</h3>
+            <p class="card-desc">High-capacity crop tool for fast watering.</p>
+            <div class="price-row">
+                <span class="price">$0.99</span>
+                <span class="sold-out">Out of Stock</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==================== PETS SECTION ==================== -->
+    <div class="section-title">Companion Pets</div>
+    <main class="store-grid">
+        
+        <div class="store-card">
+            <span class="card-rarity">EXOTIC</span>
+            <h3 class="card-title">Ice Serpent</h3>
+            <p class="card-desc">Ultra-rare frozen beast to defend your fields.</p>
+            <div class="price-row">
+                <span class="price">$32.99</span>
+                <span class="sold-out">Out of Stock</span>
+            </div>
+        </div>
+
+        <div class="store-card">
+            <span class="card-rarity">RARE</span>
+            <h3 class="card-title">Raccoon</h3>
+            <p class="card-desc">Sneaky little collector pet helper.</p>
+            <div class="price-row">
+                <span class="price">$14.99</span>
+                <button class="add-btn" onclick="triggerAlert('Raccoon', '$14.99')">Add</button>
+            </div>
+        </div>
+
+        <div class="store-card">
+            <span class="card-rarity">LEGENDARY</span>
+            <h3 class="card-title">Golden Dragonfly</h3>
+            <p class="card-desc">Rare shiny flyer for your collection.</p>
+            <div class="price-row">
+                <span class="price">$3.00</span>
+                <button class="add-btn" onclick="triggerAlert('Golden Dragonfly', '$3.00')">Add</button>
+            </div>
+        </div>
+
+        <div class="store-card">
+            <span class="card-rarity">LEGENDARY</span>
+            <h3 class="card-title">Unicorn</h3>
