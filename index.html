@@ -1,197 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grow a Garden 2 Market</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <!-- Purple Top Promo Bar -->
-    <div class="top-banner">Best Grow a Garden 2 Store</div>
-
-    <!-- Header Navigation Bar -->
-    <header>
-        <div class="logo">🌿 GrindOnGarden</div>
-        <nav>
-            <a href="#" id="nav-products" class="nav-link active">Seeds</a>
-            <a href="#" id="nav-pets" class="nav-link">Pets</a>
-            <a href="#" id="nav-tos" class="nav-link">Terms of Service</a>
-            <a href="#" id="nav-refund" class="nav-link">Refund Policy</a>
-            <a href="#" id="nav-privacy" class="nav-link">Privacy Policy</a>
-            <a href="#" id="nav-reviews" class="nav-link">Reviews</a>
-        </nav>
-        <div class="nav-right">
-            <button class="icon-btn">$ ▾</button>
-            <button class="icon-btn">🛒</button>
-        </div>
-    </header>
-
-    <!-- Main Branding Storefront Banner -->
-    <section class="store-hero">
-        <div class="store-avatar">🌿</div>
-        <div class="status-badge">Auto Delivery — Online</div>
-        <h1>GrindOnGardenMarket</h1>
-        
-        <!-- Premium Store Performance Counters -->
-        <div class="stats-row">
-            <div class="stat-item"><span class="stat-num">10K+</span><span class="stat-label">SALES</span></div>
-            <div class="stat-item"><span class="stat-num">400+</span><span class="stat-label">BUYERS</span></div>
-            <div class="stat-item"><span class="stat-num">5.00</span><span class="stat-label">RATING</span></div>
-        </div>
-
-        <!-- Catalog Filter Input Box -->
-        <div class="search-container" id="store-search-bar">
-            <input type="text" id="product-search" placeholder="🔍 Search inventory elements...">
-        </div>
-    </section>
-
-    <!-- PAGE 1: SEEDS CATALOG GRID -->
-    <main class="store-grid tab-content active" id="content-products">
-        
-        <!-- Card: Dragon's Breath -->
-        <div class="store-card product-item">
-            <div class="card-img" style="background-color: #ef4444; position: relative;">
-                <img src="dragons_breath.png" style="max-height: 90%; max-width: 90%; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none; font-size:48px;">🔥</span>
-                <span class="rarity-badge">SUPER</span>
-            </div>
-            <div class="card-info">
-                <h3>Dragon's Breath</h3>
-                <p class="card-desc">Extremely rare; actively attacks nearby players.</p>
-                <div class="price-row">
-                    <span class="price">$1.99</span>
-                    <div class="quantity-control">
-                        <button class="qty-btn minus-btn">-</button>
-                        <input type="text" class="qty-input" value="1" readonly>
-                        <button class="qty-btn plus-btn">+</button>
-                        <button class="add-btn">Add</button>
-                    </div>
-                </div>
+<!-- Card: Ghost Pepper (FIXED) -->
+<div class="store-card product-item">
+    <div class="card-img" style="background-color: #f97316; position: relative;">
+        <img src="ghost_pepper.png" style="max-height: 90%; max-width: 90%; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <span style="display:none; font-size:48px;">🌶️</span>
+        <span class="rarity-badge">MYTHIC</span>
+    </div>
+    <div class="card-info">
+        <h3>Ghost Pepper</h3>
+        <p class="card-desc">Legendary spicy crop entry.</p>
+        <div class="price-row">
+            <span class="price">$1.50</span>
+            <div class="quantity-control">
+                <button class="qty-btn minus-btn">-</button>
+                <input type="text" class="qty-input" value="1" readonly>
+                <button class="qty-btn plus-btn">+</button>
+                <button class="add-btn">Add</button>
             </div>
         </div>
-
-        <!-- Card: Moon Bloom -->
-        <div class="store-card product-item">
-            <div class="card-img" style="background-color: #38bdf8; position: relative;">
-                <img src="moon_bloom.png" style="max-height: 90%; max-width: 90%; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none; font-size:48px;">🌙</span>
-                <span class="rarity-badge">SUPER</span>
-            </div>
-            <div class="card-info">
-                <h3>Moon Bloom</h3>
-                <p class="card-desc">Emits a low-gravity effect; considered the absolute best money-maker.</p>
-                <div class="price-row">
-                    <span class="price">$1.20</span>
-                    <div class="quantity-control">
-                        <button class="qty-btn minus-btn">-</button>
-                        <input type="text" class="qty-input" value="1" readonly>
-                        <button class="qty-btn plus-btn">+</button>
-                        <button class="add-btn">Add</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card: Poison Apple -->
-        <div class="store-card product-item">
-            <div class="card-img" style="background-color: #a855f7; position: relative;">
-                <img src="poison_apple.png" style="max-height: 90%; max-width: 90%; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none; font-size:48px;">🍏</span>
-                <span class="rarity-badge">MYTHIC</span>
-            </div>
-            <div class="card-info">
-                <h3>Poison Apple</h3>
-                <p class="card-desc">Single-harvest crop with an astronomical base sell price.</p>
-                <div class="price-row">
-                    <span class="price">$0.99</span>
-                    <div class="quantity-control">
-                        <button class="qty-btn minus-btn">-</button>
-                        <input type="text" class="qty-input" value="1" readonly>
-                        <button class="qty-btn plus-btn">+</button>
-                        <button class="add-btn">Add</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card: Pomegranate -->
-        <div class="store-card product-item">
-            <div class="card-img" style="background-color: #db2777; position: relative;">
-                <img src="pomegranate.png" style="max-height: 90%; max-width: 90%; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none; font-size:48px;">❤️</span>
-                <span class="rarity-badge">MYTHIC</span>
-            </div>
-            <div class="card-info">
-                <h3>Pomegranate</h3>
-                <p class="card-desc">High-tier multi-harvest crop for consistent long-term cash.</p>
-                <div class="price-row">
-                    <span class="price">$2.00</span>
-                    <div class="quantity-control">
-                        <button class="qty-btn minus-btn">-</button>
-                        <input type="text" class="qty-input" value="1" readonly>
-                        <button class="qty-btn plus-btn">+</button>
-                        <button class="add-btn">Add</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card: Venus Fly Trap -->
-        <div class="store-card product-item">
-            <div class="card-img" style="background-color: #22c55e; position: relative;">
-                <img src="venus_fly_trap.png" style="max-height: 90%; max-width: 90%; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none; font-size:48px;">🪰</span>
-                <span class="rarity-badge">MYTHIC</span>
-            </div>
-            <div class="card-info">
-                <h3>Venus Fly Trap</h3>
-                <p class="card-desc">High-value single-harvest crop.</p>
-                <div class="price-row">
-                    <span class="price">$0.90</span>
-                    <div class="quantity-control">
-                        <button class="qty-btn minus-btn">-</button>
-                        <input type="text" class="qty-input" value="1" readonly>
-                        <button class="qty-btn plus-btn">+</button>
-                        <button class="add-btn">Add</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card: Venom Spitter -->
-        <div class="store-card product-item">
-            <div class="card-img" style="background-color: #84cc16; position: relative;">
-                <img src="venom_spitter.png" style="max-height: 90%; max-width: 90%; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none; font-size:48px;">🧪</span>
-                <span class="rarity-badge">MYTHIC</span>
-            </div>
-            <div class="card-info">
-                <h3>Venom Spitter</h3>
-                <p class="card-desc">Newly added in the latest game update.</p>
-                <div class="price-row">
-                    <span class="price">$2.00</span>
-                    <div class="quantity-control">
-                        <button class="qty-btn minus-btn">-</button>
-                        <input type="text" class="qty-input" value="1" readonly>
-                        <button class="qty-btn plus-btn">+</button>
-                        <button class="add-btn">Add</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card: Ghost Pepper -->
-        <div class="store-card product-item">
-            <div class="card-img" style="background-color: #f97316; position: relative;">
-                <img src="ghost_pepper.png" style="max-height: 90%; max-width: 90%; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none; font-size:48px;">🌶️</span>
-                <span class="rarity-badge">MYTHIC</span>
-            </div>
-            <div class="card-info">
-                <h3>Ghost Pepper</h3>
-                <p class="card-desc">Legendary spicy crop entry.</p>
-                <div class="price-row">
-                    <span class="price">$1.50</span>
-                    <div class="quantity-control">
+    </div>
+</div>
