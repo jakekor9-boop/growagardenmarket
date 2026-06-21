@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grow a Garden 2 Store</title>
+    
+    <!-- FORCED INTERNAL STYLESHEET (UNBREAKABLE) -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -237,7 +239,7 @@
             <p class="card-desc">Sneaky little collector pet helper.</p>
             <div class="price-row">
                 <span class="price">$14.99</span>
-                <button class="add-btn" onclick="payWithTebex('Raccoon')">Add</button>
+                <button class="add-btn" onclick="checkout('raccoon')">Add</button>
             </div>
         </div>
 
@@ -247,7 +249,7 @@
             <p class="card-desc">Rare shiny flyer for your collection.</p>
             <div class="price-row">
                 <span class="price">$3.00</span>
-                <button class="add-btn" onclick="payWithTebex('Golden Dragonfly')">Add</button>
+                <button class="add-btn" onclick="checkout('dragonfly')">Add</button>
             </div>
         </div>
 
@@ -257,20 +259,32 @@
             <p class="card-desc">Magical pet to show off in your garden.</p>
             <div class="price-row">
                 <span class="price">$4.00</span>
-                <button class="add-btn" onclick="payWithTebex('Unicorn')">Add</button>
+                <button class="add-btn" onclick="checkout('unicorn')">Add</button>
             </div>
         </div>
     </main>
 
+    <!-- AUTOMATED REDIRECT SCRIPT PANEL -->
     <script>
-        function payWithTebex(itemName) {
-            let username = prompt("Enter your Roblox Username for delivery verification:");
-            if (username === null || username.trim() === "") {
-                alert("Order canceled. Username is required.");
-                return;
+        function checkout(itemKey) {
+            // STRIPE LINK RE-ROUTING MATRIX CONFIGURATION
+            // Copy your unique payment link from the Stripe Dashboard > Payment Links tab 
+            // and paste them straight into the single quotes below for each pet!
+            
+            let targetUrl = "";
+            
+            if (itemKey === 'raccoon') {
+                targetUrl = "https://stripe.com"; // Replace with Raccoon Stripe link
+            } else if (itemKey === 'dragonfly') {
+                targetUrl = "https://stripe.com"; // Replace with Dragonfly Stripe link
+            } else if (itemKey === 'unicorn') {
+                targetUrl = "https://stripe.com"; // Replace with Unicorn Stripe link
             }
-            // REAL WEBSTORE DOMAIN OVERRIDE ACTIVATED
-            window.open('https://tebex.io'); 
+
+            // Immediately boots user directly into your standalone Stripe screen
+            if (targetUrl !== "") {
+                window.open(targetUrl, '_blank');
+            }
         }
     </script>
 </body>
