@@ -1,0 +1,233 @@
+/* Base Page Settings */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0c0d14; /* Deep dark background */
+    color: #f1f3f9;
+}
+
+/* Purple Top Bar */
+.top-banner {
+    background-color: #9333ea;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* Header Navbar */
+header {
+    background-color: #12131a;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1e2030;
+}
+.logo {
+    font-weight: bold;
+    font-size: 18px;
+}
+nav {
+    display: flex;
+    gap: 15px;
+}
+nav a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+nav a:hover {
+    color: #c084fc;
+}
+.nav-right {
+    display: flex;
+    gap: 10px;
+}
+.icon-btn {
+    background-color: #1e2030;
+    border: 1px solid #2e314d;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Store Front Branding Hero */
+.store-hero {
+    text-align: center;
+    padding: 40px 20px;
+    background: radial-gradient(circle at top, #2e1065 0%, #0c0d14 70%);
+}
+.store-avatar {
+    width: 70px;
+    height: 70px;
+    background-color: #1e2030;
+    border: 2px solid #9333ea;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}
+.status-badge {
+    background-color: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    display: inline-block;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    margin-bottom: 10px;
+}
+.store-hero h1 {
+    font-size: 2.2rem;
+    margin: 5px 0 20px;
+    color: #f3e8ff;
+}
+
+/* Stats Counter Row */
+.stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+.stat-num {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ec4899; /* Hot Pink stat tracking style */
+}
+.stat-label {
+    font-size: 11px;
+    color: #64748b;
+    letter-spacing: 1px;
+}
+
+/* Search Box Input */
+.search-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+.search-container input {
+    width: 100%;
+    background-color: #12131a;
+    border: 1px solid #2e314d;
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Premium E-Commerce Product Layout Grid */
+.store-grid {
+    max-width: 1200px;
+    margin: 20px auto 60px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+.store-card {
+    background-color: #12131a;
+    border: 1px solid #1e2030;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.card-img {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    background-color: #1a1b26;
+}
+.card-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.card-info h3 {
+    margin: 0;
+    font-size: 15px;
+    color: #e2e8f0;
+}
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+.price {
+    font-weight: bold;
+    color: #c084fc;
+    font-size: 15px;
+}
+.old-price {
+    font-size: 11px;
+    color: #64748b;
+    text-decoration: line-through;
+    margin-left: 5px;
+}
+
+/* E-Commerce Checkout Actions Buttons */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    background-color: #1e2030;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #2e314d;
+}
+.qty-btn {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    width: 25px;
+    height: 28px;
+    cursor: pointer;
+}
+.quantity-control input {
+    width: 20px;
+    background: none;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 13px;
+}
+.add-btn {
+    background-color: #db2777; /* Premium hot pink checkout style button */
+    border: none;
+    color: white;
+    padding: 0 12px;
+    height: 28px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.stock-badge.sold-out {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+footer {
+    text-align: center;
+    color: #475569;
+    font-size: 13px;
+    padding: 4px 0 40px;
+    border-top: 1px solid #12131a;
+}
