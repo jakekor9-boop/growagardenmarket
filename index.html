@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grow a Garden 2 Store</title>
+    
+    <!-- FORCED INTERNAL STYLESHEET STYLING -->
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #0c0d14;
             color: #f1f3f9;
         }
+
         .top-banner {
             background-color: #9333ea;
             color: white;
@@ -19,7 +22,9 @@
             padding: 8px;
             font-size: 14px;
             font-weight: bold;
+            letter-spacing: 0.5px;
         }
+
         header {
             background-color: #12131a;
             padding: 15px 40px;
@@ -28,91 +33,252 @@
             align-items: center;
             border-bottom: 1px solid #1e2030;
         }
+
         .logo {
             font-weight: bold;
             font-size: 18px;
         }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
         nav a {
             color: #94a3b8;
             text-decoration: none;
-            margin-right: 15px;
             font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
         }
+
+        nav a.active, nav a:hover {
+            color: #c084fc;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 10px;
+        }
+
+        .icon-btn {
+            background-color: #1e2030;
+            border: 1px solid #2e314d;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
         .store-hero {
             text-align: center;
             padding: 40px 20px;
             background: radial-gradient(circle at top, #2e1065 0%, #0c0d14 70%);
         }
+
+        .store-avatar {
+            width: 70px;
+            height: 70px;
+            background-color: #1e2030;
+            border: 2px solid #9333ea;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .status-badge {
+            background-color: rgba(34, 197, 94, 0.15);
+            color: #4ade80;
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            display: inline-block;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            margin-bottom: 10px;
+        }
+
         .store-hero h1 {
             font-size: 2.2rem;
+            margin: 5px 0 20px;
             color: #f3e8ff;
-            margin: 0;
         }
-        .section-title {
-            max-width: 1200px;
-            margin: 40px auto 10px;
-            padding: 0 20px;
-            font-size: 22px;
-            color: #c084fc;
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
         }
+
+        .stat-num {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ec4899;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #64748b;
+            letter-spacing: 1px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        /* Essential Fix: Keep the layout grid active when tabs switch */
+        .tab-content.active {
+            display: grid !important;
+        }
+
         .store-grid {
             max-width: 1200px;
-            margin: 10px auto 40px;
+            margin: 20px auto 60px;
             padding: 0 20px;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 20px;
         }
+
         .store-card {
             background-color: #12131a;
             border: 1px solid #1e2030;
             border-radius: 8px;
-            padding: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding-top: 15px;
+        }
+
+        .card-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            margin-bottom: 5px;
+        }
+
+        .rarity-badge-text {
+            font-size: 10px;
+            font-weight: bold;
+            background: #1e2030;
+            color: #c084fc;
+            padding: 3px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+            border: 1px solid #2e314d;
+        }
+
+        .card-info {
+            padding: 15px;
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-        .card-rarity {
-            font-size: 10px;
-            font-weight: bold;
-            color: #c084fc;
-            letter-spacing: 0.5px;
-        }
-        .card-title {
-            font-size: 18px;
+
+        .card-info h3 {
             margin: 0;
+            font-size: 16px;
             color: #e2e8f0;
         }
+
         .card-desc {
             font-size: 12px;
             color: #94a3b8;
-            margin: 0;
+            margin: 0 0 8px 0;
+            min-height: 32px;
+            line-height: 1.4;
         }
+
         .price-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 10px;
+            margin-top: 5px;
         }
+
         .price {
             font-weight: bold;
             color: #4ade80;
-            font-size: 16px;
+            font-size: 15px;
         }
+
         .add-btn {
             background-color: #db2777;
             border: none;
             color: white;
-            padding: 6px 16px;
-            font-size: 13px;
+            padding: 8px 18px;
+            font-size: 12px;
             font-weight: bold;
             border-radius: 4px;
             cursor: pointer;
         }
-        .sold-out {
+
+        .stock-badge.sold-out {
+            background-color: rgba(239, 68, 68, 0.1);
             color: #ef4444;
-            font-size: 13px;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
             font-weight: bold;
+        }
+
+        /* SECURE CHECKOUT OVERLAY MODAL */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-box {
+            background: #12131a;
+            border: 2px solid #9333ea;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(147, 51, 234, 0.4);
+        }
+        .modal-box h2 {
+            margin-top: 0;
+            color: #f3e8ff;
+        }
+        .modal-box p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+        .apple-pay-btn {
+            background-color: white;
+            color: black;
+            font-weight: bold;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .apple-pay-btn:hover {
+            background-color: #e5e5e5;
+        }
+        .close-btn {
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 13px;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -123,153 +289,65 @@
     <header>
         <div class="logo">🌿 GrindOnGarden</div>
         <nav>
-            <a href="#">Marketplace</a>
+            <a href="#" id="nav-seeds" class="nav-link active">Seeds</a>
+            <a href="#" id="nav-pets" class="nav-link">Pets</a>
         </nav>
+        <div class="nav-right">
+            <button class="icon-btn">$ ▾</button>
+            <button class="icon-btn">🛒</button>
+        </div>
     </header>
 
     <section class="store-hero">
+        <div class="store-avatar">🌿</div>
+        <div class="status-badge">Auto Delivery — Online</div>
         <h1>GrindOnGardenMarket</h1>
+        
+        <div class="stats-row">
+            <div class="stat-item"><span class="stat-num">10K+</span><span class="stat-label">SALES</span></div>
+            <div class="stat-item"><span class="stat-num">400+</span><span class="stat-label">BUYERS</span></div>
+            <div class="stat-item"><span class="stat-num">5.00</span><span class="stat-label">RATING</span></div>
+        </div>
     </section>
 
-    <!-- ==================== SEEDS SECTION ==================== -->
-    <div class="section-title">Seeds & Gear</div>
-    <main class="store-grid">
+    <!-- PAGE 1: SEEDS GRID (Active by default) -->
+    <main class="store-grid tab-content active" id="content-seeds">
         
         <div class="store-card">
-            <span class="card-rarity">SUPER</span>
-            <h3 class="card-title">Dragon's Breath Seed</h3>
-            <p class="card-desc">Extremely rare; actively attacks nearby players.</p>
-            <div class="price-row">
-                <span class="price">$1.50</span>
-                <span class="sold-out">Out of Stock</span>
+            <div class="card-header-row"><span class="rarity-badge-text">SUPER</span></div>
+            <div class="card-info">
+                <h3>Dragon's Breath Seed</h3>
+                <p class="card-desc">Extremely rare; actively attacks nearby players.</p>
+                <div class="price-row">
+                    <span class="price">$1.50</span>
+                    <span class="stock-badge sold-out">Out of Stock</span>
+                </div>
             </div>
         </div>
 
         <div class="store-card">
-            <span class="card-rarity">SUPER</span>
-            <h3 class="card-title">Moon Blossom</h3>
-            <p class="card-desc">Emits a low-gravity effect; considered the absolute best money-maker.</p>
-            <div class="price-row">
-                <span class="price">$1.00</span>
-                <span class="sold-out">Out of Stock</span>
+            <div class="card-header-row"><span class="rarity-badge-text">SUPER</span></div>
+            <div class="card-info">
+                <h3>Moon Blossom</h3>
+                <p class="card-desc">Emits a low-gravity effect; considered the absolute best money-maker.</p>
+                <div class="price-row">
+                    <span class="price">$1.00</span>
+                    <span class="stock-badge sold-out">Out of Stock</span>
+                </div>
             </div>
         </div>
 
         <div class="store-card">
-            <span class="card-rarity">MYTHIC</span>
-            <h3 class="card-title">Poison Apple</h3>
-            <p class="card-desc">Single-harvest crop with an astronomical base sell price.</p>
-            <div class="price-row">
-                <span class="price">$0.90</span>
-                <span class="sold-out">Out of Stock</span>
+            <div class="card-header-row"><span class="rarity-badge-text">MYTHIC</span></div>
+            <div class="card-info">
+                <h3>Poison Apple</h3>
+                <p class="card-desc">Single-harvest crop with an astronomical base sell price.</p>
+                <div class="price-row">
+                    <span class="price">$0.90</span>
+                    <span class="stock-badge sold-out">Out of Stock</span>
+                </div>
             </div>
         </div>
 
         <div class="store-card">
-            <span class="card-rarity">MYTHIC</span>
-            <h3 class="card-title">Pomegranate</h3>
-            <p class="card-desc">High-tier multi-harvest crop for consistent long-term cash.</p>
-            <div class="price-row">
-                <span class="price">$2.00</span>
-                <button class="add-btn">Add</button>
-            </div>
-        </div>
-
-        <div class="store-card">
-            <span class="card-rarity">MYTHIC</span>
-            <h3 class="card-title">Venus Fly Trap</h3>
-            <p class="card-desc">High-value single-harvest crop.</p>
-            <div class="price-row">
-                <span class="price">$0.90</span>
-                <button class="add-btn">Add</button>
-            </div>
-        </div>
-
-        <div class="store-card">
-            <span class="card-rarity">MYTHIC</span>
-            <h3 class="card-title">Venom Spitter</h3>
-            <p class="card-desc">Newly added in the latest game update.</p>
-            <div class="price-row">
-                <span class="price">$2.00</span>
-                <button class="add-btn">Add</button>
-            </div>
-        </div>
-
-        <div class="store-card">
-            <span class="card-rarity">MYTHIC</span>
-            <h3 class="card-title">Ghost Pepper</h3>
-            <p class="card-desc">Legendary spicy crop entry.</p>
-            <div class="price-row">
-                <span class="price">$1.50</span>
-                <button class="add-btn">Add</button>
-            </div>
-        </div>
-
-        <div class="store-card">
-            <span class="card-rarity">GEAR</span>
-            <h3 class="card-title">Super Sprinkler</h3>
-            <p class="card-desc">Automated advanced watering station asset.</p>
-            <div class="price-row">
-                <span class="price">$1.30</span>
-                <span class="sold-out">Out of Stock</span>
-            </div>
-        </div>
-
-        <div class="store-card">
-            <span class="card-rarity">GEAR</span>
-            <h3 class="card-title">Super Watering Can</h3>
-            <p class="card-desc">High-capacity crop tool for fast watering.</p>
-            <div class="price-row">
-                <span class="price">$0.99</span>
-                <span class="sold-out">Out of Stock</span>
-            </div>
-        </div>
-    </main>
-
-    <!-- ==================== PETS SECTION ==================== -->
-    <div class="section-title">Companion Pets</div>
-    <main class="store-grid">
-        
-        <div class="store-card">
-            <span class="card-rarity">EXOTIC</span>
-            <h3 class="card-title">Ice Serpent</h3>
-            <p class="card-desc">Ultra-rare frozen beast to defend your fields.</p>
-            <div class="price-row">
-                <span class="price">$32.99</span>
-                <span class="sold-out">Out of Stock</span>
-            </div>
-        </div>
-
-        <div class="store-card">
-            <span class="card-rarity">RARE</span>
-            <h3 class="card-title">Raccoon</h3>
-            <p class="card-desc">Sneaky little collector pet helper.</p>
-            <div class="price-row">
-                <span class="price">$14.99</span>
-                <button class="add-btn">Add</button>
-            </div>
-        </div>
-
-        <div class="store-card">
-            <span class="card-rarity">LEGENDARY</span>
-            <h3 class="card-title">Golden Dragonfly</h3>
-            <p class="card-desc">Rare shiny flyer for your collection.</p>
-            <div class="price-row">
-                <span class="price">$3.00</span>
-                <button class="add-btn">Add</button>
-            </div>
-        </div>
-
-        <div class="store-card">
-            <span class="card-rarity">LEGENDARY</span>
-            <h3 class="card-title">Unicorn</h3>
-            <p class="card-desc">Magical pet to show off in your garden.</p>
-            <div class="price-row">
-                <span class="price">$4.00</span>
-                <button class="add-btn">Add</button>
-            </div>
-        </div>
-    </main>
-
-</body>
-</html>
+            <div class="card-header-row"><span class="rarity-badge-text">MYTHIC</span></div>
