@@ -42,78 +42,6 @@
             color: #f3e8ff;
             margin: 0;
         }
-
-        /* PREMIUM SLIDE-DOWN PAYMENT DRAWER STYLES */
-        .payment-drawer {
-            max-width: 600px;
-            margin: 20px auto 0;
-            background-color: #12131a;
-            border: 2px solid #9333ea;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 0 25px rgba(147, 51, 234, 0.25);
-            display: none; /* Hidden until an item is clicked */
-            animation: slideDown 0.3s ease-out;
-            text-align: center;
-        }
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .drawer-header {
-            font-size: 20px;
-            font-weight: bold;
-            color: #f3e8ff;
-            margin-bottom: 15px;
-        }
-        .checkout-summary {
-            background-color: #1e2030;
-            padding: 12px;
-            border-radius: 6px;
-            border: 1px solid #2e314d;
-            font-size: 15px;
-            margin-bottom: 15px;
-        }
-        .username-field {
-            width: 100%;
-            max-width: 350px;
-            background-color: #0c0d14;
-            border: 1px solid #2e314d;
-            padding: 12px;
-            border-radius: 6px;
-            color: white;
-            font-size: 14px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-        }
-        .apple-pay-btn {
-            background-color: #ffffff;
-            color: #000000;
-            border: none;
-            width: 100%;
-            max-width: 350px;
-            padding: 14px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 6px;
-            cursor: pointer;
-            margin: 0 auto;
-            display: block;
-            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-        }
-        .apple-pay-btn:hover {
-            background-color: #e5e5e5;
-        }
-        .cancel-btn {
-            background: none;
-            border: none;
-            color: #64748b;
-            font-size: 13px;
-            cursor: pointer;
-            margin-top: 15px;
-            text-decoration: underline;
-        }
-
         .section-title {
             max-width: 1200px;
             margin: 40px auto 10px;
@@ -194,21 +122,6 @@
         <h1>GrindOnGardenMarket</h1>
     </section>
 
-    <!-- ==================== INTERACTIVE CHECKOUT DRAWER ==================== -->
-    <div class="payment-drawer" id="paymentDrawer">
-        <div class="drawer-header">🛒 Complete Your Purchase</div>
-        <div class="checkout-summary">
-            Item: <span id="checkoutItemName" style="color: #c084fc;">None</span> | Total: <span id="checkoutItemPrice" style="color: #4ade80;">$0.00</span>
-        </div>
-        <input type="text" class="username-field" id="robloxUser" placeholder="Enter Roblox Username..." required>
-        <button class="apple-pay-btn" onclick="processApplePay()">
-             Pay with Apple Pay
-        </button>
-        <div>
-            <button class="cancel-btn" onclick="closeCheckout()">Cancel Order</button>
-        </div>
-    </div>
-
     <!-- ==================== SEEDS SECTION ==================== -->
     <div class="section-title">Seeds & Gear</div>
     <main class="store-grid">
@@ -249,7 +162,7 @@
             <p class="card-desc">High-tier multi-harvest crop for consistent long-term cash.</p>
             <div class="price-row">
                 <span class="price">$2.00</span>
-                <button class="add-btn" onclick="startCheckout('Pomegranate', '$2.00')">Add</button>
+                <button class="add-btn" onclick="payWithTebex('Pomegranate')">Add</button>
             </div>
         </div>
 
@@ -259,7 +172,7 @@
             <p class="card-desc">High-value single-harvest crop.</p>
             <div class="price-row">
                 <span class="price">$0.90</span>
-                <button class="add-btn" onclick="startCheckout('Venus Fly Trap', '$0.90')">Add</button>
+                <button class="add-btn" onclick="payWithTebex('Venus Fly Trap')">Add</button>
             </div>
         </div>
 
@@ -269,7 +182,7 @@
             <p class="card-desc">Newly added in the latest game update.</p>
             <div class="price-row">
                 <span class="price">$2.00</span>
-                <button class="add-btn" onclick="startCheckout('Venom Spitter', '$2.00')">Add</button>
+                <button class="add-btn" onclick="payWithTebex('Venom Spitter')">Add</button>
             </div>
         </div>
 
@@ -279,7 +192,7 @@
             <p class="card-desc">Legendary spicy crop entry.</p>
             <div class="price-row">
                 <span class="price">$1.50</span>
-                <button class="add-btn" onclick="startCheckout('Ghost Pepper', '$1.50')">Add</button>
+                <button class="add-btn" onclick="payWithTebex('Ghost Pepper')">Add</button>
             </div>
         </div>
 
@@ -298,3 +211,71 @@
             <h3 class="card-title">Super Watering Can</h3>
             <p class="card-desc">High-capacity crop tool for fast watering.</p>
             <div class="price-row">
+                <span class="price">$0.99</span>
+                <span class="sold-out">Out of Stock</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==================== PETS SECTION ==================== -->
+    <div class="section-title">Companion Pets</div>
+    <main class="store-grid">
+        
+        <div class="store-card">
+            <span class="card-rarity">EXOTIC</span>
+            <h3 class="card-title">Ice Serpent</h3>
+            <p class="card-desc">Ultra-rare frozen beast to defend your fields.</p>
+            <div class="price-row">
+                <span class="price">$32.99</span>
+                <span class="sold-out">Out of Stock</span>
+            </div>
+        </div>
+
+        <div class="store-card">
+            <span class="card-rarity">RARE</span>
+            <h3 class="card-title">Raccoon</h3>
+            <p class="card-desc">Sneaky little collector pet helper.</p>
+            <div class="price-row">
+                <span class="price">$14.99</span>
+                <button class="add-btn" onclick="payWithTebex('Raccoon')">Add</button>
+            </div>
+        </div>
+
+        <div class="store-card">
+            <span class="card-rarity">LEGENDARY</span>
+            <h3 class="card-title">Golden Dragonfly</h3>
+            <p class="card-desc">Rare shiny flyer for your collection.</p>
+            <div class="price-row">
+                <span class="price">$3.00</span>
+                <button class="add-btn" onclick="payWithTebex('Golden Dragonfly')">Add</button>
+            </div>
+        </div>
+
+        <div class="store-card">
+            <span class="card-rarity">LEGENDARY</span>
+            <h3 class="card-title">Unicorn</h3>
+            <p class="card-desc">Magical pet to show off in your garden.</p>
+            <div class="price-row">
+                <span class="price">$4.00</span>
+                <button class="add-btn" onclick="payWithTebex('Unicorn')">Add</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function payWithTebex(itemName) {
+            // Prompts the user for their Roblox username right on screen
+            let username = prompt("Enter your Roblox Username for delivery verification:");
+            
+            if (username === null || username.trim() === "") {
+                alert("Order canceled. Username is required.");
+                return;
+            }
+
+            // REDIRECT TO TEBEX PLATFORM GATEWAY
+            // Once you create your Tebex.io shop links, replace the URL inside quotes below with your real Tebex web store link!
+            window.open('https://tebex.io'); 
+        }
+    </script>
+</body>
+</html>
