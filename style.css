@@ -40,8 +40,9 @@ nav a {
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
+    cursor: pointer;
 }
-nav a:hover {
+nav a.active, nav a:hover {
     color: #c084fc;
 }
 .nav-right {
@@ -102,7 +103,7 @@ nav a:hover {
     display: block;
     font-size: 18px;
     font-weight: bold;
-    color: #ec4899; /* Hot Pink stat tracking style */
+    color: #ec4899;
 }
 .stat-label {
     font-size: 11px;
@@ -124,6 +125,58 @@ nav a:hover {
     color: white;
     font-size: 14px;
     box-sizing: border-box;
+}
+
+/* Tab Management Styles */
+.tab-content {
+    display: none; /* Hide panels by default */
+}
+.tab-content.active {
+    display: grid; /* Show layout when active tab clicked */
+}
+div.tab-content.active {
+    display: block;
+}
+
+/* Content Page Framework blocks */
+.info-page {
+    max-width: 800px;
+    margin: 10px auto 60px;
+    padding: 0 20px;
+}
+.info-page h2 {
+    color: #c084fc;
+    border-bottom: 1px solid #1e2030;
+    padding-bottom: 10px;
+}
+.info-box {
+    background-color: #12131a;
+    border: 1px solid #1e2030;
+    padding: 25px;
+    border-radius: 8px;
+    line-height: 1.6;
+    color: #cbd5e1;
+}
+
+/* Reviews List Styles */
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.review-item {
+    background-color: #12131a;
+    border: 1px solid #1e2030;
+    padding: 20px;
+    border-radius: 8px;
+}
+.review-meta {
+    color: #94a3b8;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+.stars {
+    margin-left: 10px;
 }
 
 /* Premium E-Commerce Product Layout Grid */
@@ -180,7 +233,6 @@ nav a:hover {
     margin-left: 5px;
 }
 
-/* E-Commerce Checkout Actions Buttons */
 .quantity-control {
     display: flex;
     align-items: center;
@@ -206,7 +258,7 @@ nav a:hover {
     font-size: 13px;
 }
 .add-btn {
-    background-color: #db2777; /* Premium hot pink checkout style button */
+    background-color: #db2777;
     border: none;
     color: white;
     padding: 0 12px;
