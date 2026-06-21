@@ -8,18 +8,16 @@
 </head>
 <body>
 
-    <!-- Top Promo Banner Bar -->
     <div class="top-banner">Best Grow a Garden 2 Store</div>
 
-    <!-- Navigation Bar -->
     <header>
         <div class="logo">🌿 GrindOnGarden</div>
         <nav>
-            <a href="#" class="active">Products</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Refund Policy</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Reviews</a>
+            <a href="#" id="nav-products" class="nav-link active">Products</a>
+            <a href="#" id="nav-tos" class="nav-link">Terms of Service</a>
+            <a href="#" id="nav-refund" class="nav-link">Refund Policy</a>
+            <a href="#" id="nav-privacy" class="nav-link">Privacy Policy</a>
+            <a href="#" id="nav-reviews" class="nav-link">Reviews</a>
         </nav>
         <div class="nav-right">
             <button class="icon-btn">$ ▾</button>
@@ -27,29 +25,24 @@
         </div>
     </header>
 
-    <!-- Main Store Header -->
     <section class="store-hero">
         <div class="store-avatar">🌿</div>
         <div class="status-badge">Auto Delivery — Online</div>
         <h1>GrindOnGardenMarket</h1>
         
-        <!-- Stats Row -->
         <div class="stats-row">
             <div class="stat-item"><span class="stat-num">10K+</span><span class="stat-label">SALES</span></div>
             <div class="stat-item"><span class="stat-num">400+</span><span class="stat-label">BUYERS</span></div>
             <div class="stat-item"><span class="stat-num">5.00</span><span class="stat-label">RATING</span></div>
         </div>
 
-        <!-- Search Bar -->
-        <div class="search-container">
+        <div class="search-container" id="store-search-bar">
             <input type="text" placeholder="🔍 Search products...">
         </div>
     </section>
 
-    <!-- Product Grid Section -->
-    <main class="store-grid">
-        
-        <!-- Card 1 (Golden Watering Can) -->
+    <!-- SECTION 1: PRODUCTS PAGE -->
+    <main class="store-grid tab-content active" id="content-products">
         <div class="store-card">
             <div class="card-img" style="background-color: #ffd700; color: #12131a;">⚡</div>
             <div class="card-info">
@@ -66,7 +59,6 @@
             </div>
         </div>
 
-        <!-- Card 2 (Mythic Star Seed) -->
         <div class="store-card">
             <div class="card-img" style="background-color: #a855f7; color: white;">🔮</div>
             <div class="card-info">
@@ -78,7 +70,6 @@
             </div>
         </div>
 
-        <!-- Card 3 (1 Million Garden Coins) -->
         <div class="store-card">
             <div class="card-img" style="background-color: #22c55e; color: white;">💰</div>
             <div class="card-info">
@@ -94,12 +85,84 @@
                 </div>
             </div>
         </div>
-
     </main>
+
+    <!-- SECTION 2: TERMS OF SERVICE PAGE -->
+    <div class="info-page tab-content" id="content-tos">
+        <h2>Terms of Service</h2>
+        <div class="info-box">
+            <p><strong>1. Virtual Goods:</strong> All purchases are for virtual elements inside Roblox Grow a Garden 2. Items carry no real-world cash value.</p>
+            <p><strong>2. Delivery:</strong> Product delivery is handled automatically via our active system immediately after checkout payment is fully verified.</p>
+            <p><strong>3. Account Safety:</strong> Make sure your Roblox username is typed completely correctly before completing payment.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 3: REFUND POLICY -->
+    <div class="info-page tab-content" id="content-refund">
+        <h2>Refund Policy</h2>
+        <div class="info-box">
+            <p>Due to the immediate digital delivery nature of our Roblox store items, all sales processed are final. Refunds are only considered if a technical delivery failure happens on our end.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 4: PRIVACY POLICY -->
+    <div class="info-page tab-content" id="content-privacy">
+        <h2>Privacy Policy</h2>
+        <div class="info-box">
+            <p>We care about your privacy. We strictly collect only the Roblox usernames required to deliver your ordered garden tools. We never log or request password keys or private profile details.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 5: REVIEWS PAGE -->
+    <div class="info-page tab-content" id="content-reviews">
+        <h2>Customer Reviews (5.00 ⭐)</h2>
+        <div class="reviews-list">
+            <div class="review-item">
+                <div class="review-meta"><strong>BloxGamer99</strong> — Verified Buyer <span class="stars">⭐⭐⭐⭐⭐</span></div>
+                <p>"Insanely fast delivery! Got my Golden Watering Can instantly. Will buy again."</p>
+            </div>
+            <div class="review-item">
+                <div class="review-meta"><strong>GardenKing</strong> — Verified Buyer <span class="stars">⭐⭐⭐⭐⭐</span></div>
+                <p>"Best store layout and great item pricing options. Zero issues with checkout."</p>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 GrindOnGarden. All rights reserved.</p>
     </footer>
 
+    <!-- Interactive script to make the navigation tabs function instantly -->
+    <script>
+        const links = document.querySelectorAll('.nav-link');
+        const contents = document.querySelectorAll('.tab-content');
+        const searchBar = document.getElementById('store-search-bar');
+
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Set active class on navbar tab
+                links.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Find matching layout div block
+                const targetId = link.id.replace('nav-', 'content-');
+                
+                contents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                document.getElementById(targetId).classList.add('active');
+
+                // Keep search bar visible only on the Products catalog
+                if(targetId === 'content-products') {
+                    searchBar.style.display = 'block';
+                } else {
+                    searchBar.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
