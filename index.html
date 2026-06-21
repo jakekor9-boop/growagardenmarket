@@ -67,6 +67,66 @@
             color: #ef4444;
             font-weight: bold;
         }
+
+        /* LIVE SIGN-IN & COMMENT CONTAINER STYLES */
+        .comment-section {
+            max-width: 500px;
+            margin: 30px auto 10px;
+            background-color: #12131a;
+            border: 1px solid #1e2030;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .comment-section h3 {
+            margin-top: 0;
+            color: #c084fc;
+            font-size: 18px;
+        }
+        .signin-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .username-input {
+            flex: 1;
+            background-color: #0c0d14;
+            border: 1px solid #2e314d;
+            padding: 10px 15px;
+            border-radius: 6px;
+            color: white;
+            font-size: 14px;
+        }
+        .signin-btn {
+            background-color: #9333ea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .signin-btn:hover {
+            background-color: #a855f7;
+        }
+        .comments-list {
+            max-height: 200px;
+            overflow-y: auto;
+            text-align: left;
+            background-color: #0c0d14;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #1e2030;
+        }
+        .comment-item {
+            padding: 8px 5px;
+            border-bottom: 1px solid #12131a;
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+        .comment-item strong {
+            color: #4ade80;
+        }
+
         .section-title {
             max-width: 1200px;
             margin: 40px auto 10px;
@@ -152,6 +212,18 @@
             <span style="font-size: 12px; color: #94a3b8; display:block; margin: 4px 0;">⚠️ Include your Roblox Username in the text description note!</span>
             <span class="status-red">🚫 Cash App Disabled</span>
         </div>
+
+        <!-- LIVE COMMENT SECTION INTEGRATION CONTAINER -->
+        <div class="comment-section">
+            <h3>👤 Active Delivery Queue / Sign In</h3>
+            <div class="signin-form">
+                <input type="text" class="username-input" id="robloxSign" placeholder="Enter Roblox Username to sign in...">
+                <button class="signin-btn" onclick="submitUserComment()">Sign In</button>
+            </div>
+            <div class="comments-list" id="feedContainer">
+                <div class="comment-item" id="emptyNotice" style="color: #64748b; text-align: center;">No users signed in yet.</div>
+            </div>
+        </div>
     </section>
 
     <!-- ==================== SEEDS SECTION ==================== -->
@@ -209,53 +281,3 @@
             <span class="card-rarity">GEAR</span>
             <h3 class="card-title">Super Watering Can</h3>
             <p class="card-desc">High-capacity crop tool for fast watering.</p>
-            <div class="price-row"><span class="price">$0.99</span><span class="sold-out">Out of Stock</span></div>
-        </div>
-    </main>
-
-    <!-- ==================== PETS SECTION ==================== -->
-    <div class="section-title">Companion Pets</div>
-    <main class="store-grid">
-        <div class="store-card">
-            <span class="card-rarity">EXOTIC</span>
-            <h3 class="card-title">Ice Serpent</h3>
-            <p class="card-desc">Ultra-rare frozen beast to defend your fields.</p>
-            <div class="price-row"><span class="price">$32.99</span><span class="sold-out">Out of Stock</span></div>
-        </div>
-        <div class="store-card">
-            <span class="card-rarity">RARE</span>
-            <h3 class="card-title">Raccoon</h3>
-            <p class="card-desc">Sneaky little collector pet helper.</p>
-            <div class="price-row">
-                <span class="price">$14.99</span>
-                <button class="add-btn" onclick="triggerAlert('Raccoon', '$14.99')">Add</button>
-            </div>
-        </div>
-        <div class="store-card">
-            <span class="card-rarity">LEGENDARY</span>
-            <h3 class="card-title">Golden Dragonfly</h3>
-            <p class="card-desc">Rare shiny flyer for your collection.</p>
-            <div class="price-row">
-                <span class="price">$3.00</span>
-                <button class="add-btn" onclick="triggerAlert('Golden Dragonfly', '$3.00')">Add</button>
-            </div>
-        </div>
-        <div class="store-card">
-            <span class="card-rarity">LEGENDARY</span>
-            <h3 class="card-title">Unicorn</h3>
-            <p class="card-desc">Magical pet to show off in your garden.</p>
-            <div class="price-row">
-                <span class="price">$4.00</span>
-                <button class="add-btn" onclick="triggerAlert('Unicorn', '$4.00')">Add</button>
-            </div>
-        </div>
-    </main>
-
-    <script>
-        function triggerAlert(itemName, price) {
-            let user = prompt("Enter your Roblox Username for delivery tracking:");
-            if (user === null || user.trim() === "") return;
-            
-            alert(
-                `📲 APPLE PAY CHECKOUT REQUESTED!\n\n` +
-                `To order 1x ${itemName} for ${price}:\n` +
