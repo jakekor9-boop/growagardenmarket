@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grow a Garden 2 Market</title>
     
-    <!-- FORCED INTERNAL PREMIUM DARK THEME STYLING -->
+    <!-- EMBEDDED STYLESHEET CODE DIRECTLY INSIDE FILE -->
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -149,6 +149,9 @@
         .tab-content.active {
             display: grid !important;
         }
+        div.info-page.tab-content.active {
+            display: block !important;
+        }
 
         .store-grid {
             max-width: 1200px;
@@ -166,37 +169,26 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            padding-top: 15px; /* Clean spacing for top text */
         }
 
-        .card-img {
-            height: 160px;
+        .card-header-row {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            background-color: #1a1b26;
-            position: relative;
-            overflow: hidden;
+            padding: 0 15px;
+            margin-bottom: 5px;
         }
 
-        .card-img img {
-            max-height: 90% !important;
-            max-width: 90% !important;
-            width: auto !important;
-            height: auto !important;
-            object-fit: contain !important;
-        }
-
-        .rarity-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+        .rarity-badge-text {
             font-size: 10px;
             font-weight: bold;
-            background: rgba(0,0,0,0.6);
-            color: #fff;
-            padding: 3px 6px;
+            background: #1e2030;
+            color: #c084fc;
+            padding: 3px 8px;
             border-radius: 4px;
             letter-spacing: 0.5px;
+            border: 1px solid #2e314d;
         }
 
         .card-info {
@@ -208,7 +200,7 @@
 
         .card-info h3 {
             margin: 0;
-            font-size: 15px;
+            font-size: 16px;
             color: #e2e8f0;
         }
 
@@ -229,7 +221,7 @@
 
         .price {
             font-weight: bold;
-            color: #c084fc;
+            color: #4ade80; /* Clean tech green for pricing info */
             font-size: 15px;
         }
 
@@ -279,6 +271,7 @@
             padding: 4px 10px;
             border-radius: 6px;
             font-size: 12px;
+            font-weight: bold;
         }
 
         .info-page {
@@ -366,11 +359,15 @@
         </div>
     </section>
 
-    <!-- PAGE 1: SEEDS CATALOG GRID -->
+    <!-- PAGE 1: SEEDS & GEAR CATALOG GRID -->
     <main class="store-grid tab-content active" id="content-products">
         
         <!-- Card: Dragon's Breath -->
         <div class="store-card product-item">
-            <div class="card-img">
-                <img src="dragons_breath.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none; font-size:48px;">🔥</span>
+            <div class="card-header-row">
+                <span class="rarity-badge-text">SUPER</span>
+            </div>
+            <div class="card-info">
+                <h3>Dragon's Breath Seed</h3>
+                <p class="card-desc">Extremely rare; actively attacks nearby players.</p>
+                <div class="price-row">
