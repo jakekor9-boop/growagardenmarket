@@ -134,9 +134,6 @@ nav a.active, nav a:hover {
 .tab-content.active {
     display: grid; /* Show layout when active tab clicked */
 }
-div.tab-content.active {
-    display: block;
-}
 
 /* Content Page Framework blocks */
 .info-page {
