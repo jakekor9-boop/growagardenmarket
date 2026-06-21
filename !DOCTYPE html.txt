@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Grow A Garden Market</title>
+</head>
+<body>
+<h1>Welcome to Grow A Garden Market!</h1>
+<p>My website is live.</p>
+</body>
+</html>
