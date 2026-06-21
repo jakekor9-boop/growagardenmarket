@@ -172,7 +172,7 @@
             <p class="card-desc">High-value single-harvest crop.</p>
             <div class="price-row">
                 <span class="price">$0.90</span>
-                <button class="add-btn" onclick="payWithTebex('Venus Fly Trap')">Add</button>
+                <span class="sold-out">Out of Stock</span>
             </div>
         </div>
 
@@ -182,7 +182,7 @@
             <p class="card-desc">Newly added in the latest game update.</p>
             <div class="price-row">
                 <span class="price">$2.00</span>
-                <button class="add-btn" onclick="payWithTebex('Venom Spitter')">Add</button>
+                <span class="sold-out">Out of Stock</span>
             </div>
         </div>
 
@@ -192,7 +192,7 @@
             <p class="card-desc">Legendary spicy crop entry.</p>
             <div class="price-row">
                 <span class="price">$1.50</span>
-                <button class="add-btn" onclick="payWithTebex('Ghost Pepper')">Add</button>
+                <span class="sold-out">Out of Stock</span>
             </div>
         </div>
 
@@ -264,16 +264,12 @@
 
     <script>
         function payWithTebex(itemName) {
-            // Prompts the user for their Roblox username right on screen
             let username = prompt("Enter your Roblox Username for delivery verification:");
-            
             if (username === null || username.trim() === "") {
                 alert("Order canceled. Username is required.");
                 return;
             }
-
-            // REDIRECT TO TEBEX PLATFORM GATEWAY
-            // Once you create your Tebex.io shop links, replace the URL inside quotes below with your real Tebex web store link!
+            // Put your Tebex storefront path right inside the single quotes below when your account setup finishes!
             window.open('https://tebex.io'); 
         }
     </script>
