@@ -92,15 +92,15 @@
     </footer>
 
     <script>
-        // COMPREHENSIVE SEED INVENTORY ARRAY
+        // UPDATED SEED INVENTORY WITH NEW CUSTOM PRICES
         const productsData = [
-            { id: 1, name: "Dragon's Breath", rarity: "SUPER", price: "90M Sheckels", desc: "Extremely rare; actively attacks nearby players.", isSoldOut: false, color: "#ef4444", textColor: "white", icon: "🔥" },
-            { id: 2, name: "Moon Bloom", rarity: "SUPER", price: "65M Sheckels", desc: "Emits a low-gravity effect; considered the absolute best money-maker.", isSoldOut: false, color: "#38bdf8", textColor: "#12131a", icon: "🌙" },
-            { id: 3, name: "Poison Apple", rarity: "MYTHIC", price: "25M Sheckels", desc: "Single-harvest crop with an astronomical base sell price.", isSoldOut: false, color: "#a855f7", textColor: "white", icon: "🍏" },
-            { id: 4, name: "Pomegranate", rarity: "MYTHIC", price: "12M Sheckels", desc: "High-tier multi-harvest crop for consistent long-term cash.", isSoldOut: false, color: "#db2777", textColor: "white", icon: "❤️" },
-            { id: 5, name: "Venus Fly Trap", rarity: "MYTHIC", price: "7M Sheckels", desc: "High-value single-harvest crop.", isSoldOut: false, color: "#22c55e", textColor: "white", icon: "🪰" },
-            { id: 6, name: "Venom Spitter", rarity: "MYTHIC", price: "Shop Stock", desc: "Newly added in the latest game update.", isSoldOut: false, color: "#84cc16", textColor: "#12131a", icon: "🧪" },
-            { id: 7, name: "Ghost Pepper", rarity: "MYTHIC", price: "TBD", desc: "Legendary spicy crop entry. Details incoming...", isSoldOut: true, color: "#f97316", textColor: "white", icon: "🌶️" }
+            { id: 1, name: "Dragon's Breath", rarity: "SUPER", price: "$1.99", desc: "Extremely rare; actively attacks nearby players.", isSoldOut: false, color: "#ef4444", textColor: "white", icon: "🔥", imgSrc: "" },
+            { id: 2, name: "Moon Bloom", rarity: "SUPER", price: "$1.20", desc: "Emits a low-gravity effect; considered the absolute best money-maker.", isSoldOut: false, color: "#38bdf8", textColor: "#12131a", icon: "🌙", imgSrc: "" },
+            { id: 3, name: "Poison Apple", rarity: "MYTHIC", price: "$0.99", desc: "Single-harvest crop with an astronomical base sell price.", isSoldOut: false, color: "#a855f7", textColor: "white", icon: "🍏", imgSrc: "" },
+            { id: 4, name: "Pomegranate", rarity: "MYTHIC", price: "$2.00", desc: "High-tier multi-harvest crop for consistent long-term cash.", isSoldOut: false, color: "#db2777", textColor: "white", icon: "❤️", imgSrc: "" },
+            { id: 5, name: "Venus Fly Trap", rarity: "MYTHIC", price: "$0.90", desc: "High-value single-harvest crop.", isSoldOut: false, color: "#22c55e", textColor: "white", icon: "🪰", imgSrc: "" },
+            { id: 6, name: "Venom Spitter", rarity: "MYTHIC", price: "$2.00", desc: "Newly added in the latest game update.", isSoldOut: false, color: "#84cc16", textColor: "#12131a", icon: "🧪", imgSrc: "" },
+            { id: 7, name: "Ghost Pepper", rarity: "MYTHIC", price: "$1.50", desc: "Legendary spicy crop entry.", isSoldOut: false, color: "#f97316", textColor: "white", icon: "🌶️", imgSrc: "" }
         ];
 
         const grid = document.getElementById('content-products');
@@ -130,17 +130,20 @@
                     `;
                 }
 
+                // Code handles regular emojis OR real images if an image link is added
+                let mediaDisplay = item.imgSrc ? `<img src="${item.imgSrc}" style="max-height:80%; max-width:80%; object-fit:contain;">` : item.icon;
+
                 const cardHtml = `
                     <div class="store-card">
-                        <div class="card-img" style="background-color: ${item.color}; color: ${item.textColor};">
-                            ${item.icon}
+                        <div class="card-img" style="background-color: ${item.color}; color: ${item.textColor}; position: relative;">
+                            ${mediaDisplay}
                             <span style="position: absolute; top: 10px; right: 10px; font-size: 10px; font-weight: bold; background: rgba(0,0,0,0.6); color: #fff; padding: 3px 6px; border-radius: 4px; letter-spacing: 0.5px;">${item.rarity}</span>
                         </div>
                         <div class="card-info">
                             <h3>${item.name}</h3>
                             <p style="font-size: 12px; color: #94a3b8; margin: 0 0 8px 0; min-height: 32px; line-height: 1.4;">${item.desc}</p>
                             <div class="price-row">
-                                <span class="price" style="color: #fbbf24; font-size: 14px;">${item.price}</span>
+                                <span class="price" style="color: #c084fc; font-size: 15px; font-weight: bold;">${item.price}</span>
                                 ${actionSection}
                             </div>
                         </div>
@@ -185,13 +188,3 @@
                 contents.forEach(content => content.classList.remove('active'));
                 document.getElementById(targetId).classList.add('active');
 
-                if(targetId === 'content-products') {
-                    searchBar.style.display = 'block';
-                } else {
-                    searchBar.style.display = 'none';
-                }
-            });
-        });
-    </script>
-</body>
-</html>
